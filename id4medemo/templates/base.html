@@ -34,6 +34,12 @@
             <ul class="nav">
                 {% show_menu 0 100 100 100 %}
             </ul>
+{% if user.is_authenticated %}
+    <h1>Welcome, {{ user.get_full_name }} ({{ user.get_username }}).</h1>
+    <p>Thanks for logging in.</p>
+{% else %}
+    <h1>Please log in.</h1>
+{% endif %}
             {% block content %}{% endblock content %}
         </div>
         {% render_block "js" %}
