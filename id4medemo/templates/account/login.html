@@ -1,0 +1,60 @@
+{% extends "account/base.html" %}
+
+{% load i18n sekizai_tags %}
+{% load account socialaccount %}
+
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans "Sign In" %}</h1>
+
+{% get_providers as socialaccount_providers %}
+
+
+<div class="container">
+  <form class="login" method="POST" action="{% url 'account_login' %}">
+    <div class="row">
+      <h2 style="text-align:center">Please sign in or login wiht ID4me</h2>
+      <div class="vl">
+        <span class="vl-innertext">{% trans 'or' %}</span>
+      </div>
+        
+      {% if socialaccount_providers %}
+      <div class="col">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </div>
+      {% include "socialaccount/snippets/login_extra.html" %}
+      {% endif %}
+
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Or sign in manually:</p>
+        </div>
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <input type="submit" value="{% trans "Sign In" %}">        
+        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <div class="row">
+    <div class="col">
+      <a href="{{ signup_url }}" style="color:white" class="btn">Sign up</a>
+    </div>
+<!--    <div class="col">
+      <a href="#" style="color:white" class="btn">Forgot password?</a>
+    </div> -->
+  </div>
+</div>
+
+{% endblock %}

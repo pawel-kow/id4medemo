@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% load sekizai_tags %}
+
+{% block commoncss %}
+
+{% addtoblock "css" %}
+<style type="text/css">
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* style the container */
+.container {
+  position: relative;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px 0 30px 0;
+} 
+
+/* style inputs and link buttons */
+input,
+.btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  margin: 5px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+  opacity: 1;
+}
+
+/* add appropriate colors to fb, twitter and google buttons */
+.fb {
+  background-color: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background-color: #55ACEE;
+  color: white;
+}
+
+.google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+.id4me {
+  background-color: #007a9d;
+  color: white;
+}
+
+.fa-id4me {
+  width: 1.28571429em;
+  text-align: center;
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-id4me:before {
+  content: "ID";
+  color: #00000000;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NSIgaGVpZ2h0PSI2MiI+PHJlY3QgaWQ9ImJhY2tncm91bmRyZWN0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4PSIwIiB5PSIwIiBmaWxsPSJub25lIiBzdHJva2U9Im5vbmUiIHN0eWxlPSIiIGNsYXNzPSIiLz48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6IzAwN2E5ZDt9LmNscy0ye2ZpbGw6I2ZmZjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPjEwMHgxMDAgd2hpdGU8L3RpdGxlPjxnIGNsYXNzPSJjdXJyZW50TGF5ZXIiIHN0eWxlPSIiPjx0aXRsZT5MYXllciAxPC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiBjbGFzcz0iIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xOS4wMDk5OTgzMjE1MzMyMDMsMC4wMDE1NjIxMTg1MzAyNzM0Mzc1IGgyOSBBMTcuNSwxNy41IDAgMCAxIDY1LjQ2MDAwMjg5OTE2OTkyLDE3LjQ3MTU2MTQzMTg4NDc2NiBWNDQuODYxNTYwODIxNTMzMiBBMTcuNTQwMDAwOTE1NTI3MzQ0LDE3LjU0MDAwMDkxNTUyNzM0NCAwIDAgMSA0Ny45Nzk5OTk1NDIyMzYzMyw2Mi4zNTE1NjI1IEgyNi4zNjAwMDA2MTAzNTE1NjIgbDcuNjU5OTk5ODQ3NDEyMTA5LC0xMC45MzAwMDAzMDUxNzU3ODEgSDQ3LjQyOTk5NjQ5MDQ3ODUxNiBBNy4xMTk5OTk4ODU1NTkwODIsNy4xMTk5OTk4ODU1NTkwODIgMCAwIDAgNTQuNTMwMDAyNTkzOTk0MTQsNDQuMzUxNTYyNSBWMTguMDgxNTYyMDQyMjM2MzI4IGE3LjA1OTk5OTk0Mjc3OTU0MSw3LjA1OTk5OTk0Mjc3OTU0MSAwIDAgMCAtNy4wOTk5OTk5MDQ2MzI1NjgsLTcuMDk5OTk5OTA0NjMyNTY4IEgyOS45Mzk5OTg2MjY3MDg5ODQgdjM1Ljc5OTk5OTIzNzA2MDU1IEwxOS4wMDk5OTgzMjE1MzMyMDMsNjIuMzUxNTYyNSBWMC4wMDE1NjIxMTg1MzAyNzM0Mzc1IHoiIGlkPSJzdmdfMiIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIwLDAuMDAxNTYyMTE4NTMwMjczNDM3NSAwLDYyLjI5MTU2NDk0MTQwNjI1IDEwLjkzMDAwMDMwNTE3NTc4MSw2Mi4yOTE1NjQ5NDE0MDYyNSAxMC45MzAwMDAzMDUxNzU3ODEsMC4wMDE1NjIxMTg1MzAyNzM0Mzc1IDAsMC4wMDE1NjIxMTg1MzAyNzM0Mzc1IDAsMC4wMDE1NjIxMTg1MzAyNzM0Mzc1ICIgaWQ9InN2Z18zIi8+PC9nPjwvZz48L3N2Zz4=');
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 100%;
+}
+
+/* style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Two-column layout */
+.col {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding: 0 50px;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* vertical line */
+.vl {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  border: 2px solid #ddd;
+  height: 175px;
+}
+
+/* text inside the vertical line */
+.vl-innertext {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 8px 10px;
+}
+
+/* hide some text on medium and large screens */
+.hide-md-lg {
+  display: none;
+}
+
+/* bottom container */
+.bottom-container {
+  text-align: center;
+  background-color: #666;
+  border-radius: 0px 0px 4px 4px;
+}
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 650px) {
+  .col {
+    width: 100%;
+    margin-top: 0;
+  }
+  /* hide the vertical line */
+  .vl {
+    display: none;
+  }
+  /* show the hidden text on small screens */
+  .hide-md-lg {
+    display: block;
+    text-align: center;
+  }
+}
+
+</style>
+{% endaddtoblock %}
+{% endblock %}
