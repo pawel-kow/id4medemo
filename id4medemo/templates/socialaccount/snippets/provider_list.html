@@ -5,14 +5,19 @@
 {% for provider in socialaccount_providers %}
 {% if provider.id == "openid" %}
 {% for brand in provider.get_brands %}
-        <a href="{% provider_login_url provider.id openid=brand.openid_url process=process %}" class="{{provider.id}} {{brand.id}} btn">
-          <i class="fa fa-{{provider.id}} fa-{{brand.id}} fa-fw"></i> Login with {{brand.name}}
+        <a href="{% provider_login_url provider.id openid=brand.openid_url process=process %}" class="{{provider.id}} {{brand.id}} btn" id="{{provider.id}}-button">
+          <i class="fa fa-{{provider.id}} fa-{{brand.id}} fa-fw"></i><span 
+id="{{brand.id}}-text"> Login with {{brand.name}}</span><input 
+id="{{brand.id}}-input" type="text" name="username" placeholder="Enter your ID" 
+style="display: none;">
         </a>
-
 {% endfor %}
 {% endif %}
-        <a href="{% provider_login_url provider.id openid=brand.openid_url process=process %}" class="{{provider.id}} btn">
-          <i class="fa fa-{{provider.id}} fa-fw"></i> Login with {{provider.name}}
+        <a href="{% provider_login_url provider.id process=process %}" data-link="{% provider_login_url provider.id process=process %}" class="{{provider.id}} btn" id="{{provider.id}}-button">
+          <i class="fa fa-{{provider.id}} fa-fw"></i><span 
+id="{{provider.id}}-text"> Login with {{provider.name}}</span><input 
+id="{{provider.id}}-input" type="text" name="username" placeholder="Enter your ID" 
+style="display: none;">
         </a>
 
 {% endfor %}
