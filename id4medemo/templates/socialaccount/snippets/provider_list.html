@@ -13,11 +13,35 @@ style="display: none;">
         </a>
 {% endfor %}
 {% endif %}
-        <a href="{% provider_login_url provider.id process=process %}" data-link="{% provider_login_url provider.id process=process %}" class="{{provider.id}} btn login-btn" id="{{provider.id}}-button">
-          <i class="fa fa-{{provider.id}} fa-fw"></i><span 
-id="{{provider.id}}-text" class="login-button-text">Login with {{provider.name}}</span><input 
-id="{{provider.id}}-input" type="text" name="{{provider.id}}" placeholder="Enter your ID" 
-style="display: none;">
-        </a>
+<!-- START BUTTON {{provider.id}} -->
+<a  href="{% provider_login_url provider.id process=process %}"
+    data-link="{% provider_login_url provider.id process=process %}"
+    class="{{provider.id}} btn login-btn" 
+    id="{{provider.id}}-button">
+    <i class="fa fa-{{provider.id}} fa-fw"></i>
+    <span   id="{{provider.id}}-text" 
+            class="login-button-text">Login with ID4me</span>
+            
+    <span id="{{provider.id}}-handler" class="alignright hiddenform">
+        <div id="circle"><div id="cross_hori"></div><div id="cross_vert"></div></div>
+        <div id="circle"><div id="cross_hori" class="deg45"></div><div id="cross_vert" class="deg45"></div></div>
+    </span>
+    
+    <div id="{{provider.id}}-handler-form" class="hiddenform">
+        <input id="{{provider.id}}-input" type="text" name="{{provider.id}}" placeholder="Enter your ID">
+        <span id="foo">
+            <input 
+                class="alignleft" 
+                id="remme" 
+                type="checkbox" 
+                name="rememberLogin" 
+                value="yes">
+            <span class="alignleft">remember me</span>
+            <button class="alignright" type="button">Sign In</button>
+        </span>
+    </div>
+    <div style="clear: both;"></div>
+</a>
+<!-- END BUTTON {{provider.id}} -->
 
 {% endfor %}
