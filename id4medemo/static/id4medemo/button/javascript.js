@@ -3,7 +3,7 @@ function setCookie(cname, cvalue) {
 	document.cookie = cname + "=" + encodeURI(cvalue) + ";path=/";
 }
 
-function delete_cookie( name ) {
+function deleteCookie( name ) {
 	var string = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
 	document.cookie = string;
 }
@@ -26,13 +26,11 @@ function getCookie(cname) {
 function redirectURL (event){
 	event.preventDefault();
 	// Trigger the button element with a click
-	var rememberme = false;
 	if($('#id4me-checkbox').prop('checked')){
-		rememberme = true;
 		setCookie("id4me.user", $('#id4me-input').val());
 	}
-	var url = $('#id4me-button-anchor').attr("data-link") + "&id4me=" + $('#id4me-input').val()  + "&rememberme=" + rememberme;
-	location.href = encodeURI(url);
+	var url = $('#id4me-button-anchor').attr("data-link") + "&id4me=" + encodeURI($('#id4me-input').val());
+	location.href = url;
 }
 
 $(function() {
@@ -57,7 +55,7 @@ $(document).ready(function(){
 	  $('#id4me-text').html(" Login as " + user);
 	  $('#id4me-handler').show();
 	  $('#id4me-remove-id').click(function() {
-		  delete_cookie('id4me.user');
+		  deleteCookie('id4me.user');
 		  $('#id4me-text').html(" Login with ID4me ");
 		  $('#id4me-input').show();
 		  $('#id4me-handler-form').show();
