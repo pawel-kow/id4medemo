@@ -1,3 +1,24 @@
+.nav {
+	padding-left: 0;
+}
+.nav li {
+	display: inline;
+	list-style-type: none;
+	padding-right: 20px;
+}
+.container {
+	width: 940px;
+	margin: 0 auto
+}
+.content {
+	float: left;
+	width: 80%;
+}
+.sidebar {
+	float: left;
+	width: 20%;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -179,28 +200,31 @@ input[type=submit]:hover {
 
 
 /* peters stuff */
-
+#id4me-button-anchor {
+	text-decoration:none;
+	color:white;
+}
 .hiddenform { display:none;}
 .alignleft {float:left;}
 .alignright{float:right}
 #foo > * {width:auto; margin:10px;}
 #hiddenform > * {
-    font-weight:normal;
-    font-size:1em;
+	font-weight:normal;
+	font-size:1em;
 }
 #foo input[type="checkbox"]{
-    margin-top:16px;
+	margin-top:16px;
 }
 #foo button{
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    font-size:1em;
-    border:none;
-    border-radius:4px;
-    line-height:1.4em;
-    margin:5px 0;
-    padding:5px 20px 5px 20px;
+	background-color: #4CAF50;
+	color: white;
+	cursor: pointer;
+	font-size:1em;
+	border:none;
+	border-radius:4px;
+	line-height:1.4em;
+	margin:5px 0;
+	padding:5px 20px 5px 20px;
 }
 
 .login-button-text {
@@ -219,11 +243,11 @@ input[type=submit]:hover {
   display:inline-block;
 }
 
-#circle:hover {
-    opacity: 1;
+.circle:hover {
+	opacity: 1;
 }
 
-#circle {
+.circle {
   opacity: .1;
   display:inline-block;
   box-sizing: content-box;
@@ -233,7 +257,7 @@ input[type=submit]:hover {
   border-radius: 50%;
 }
 
-#cross_hori {
+.cross_hori {
   width: calc((var(--ps-width) - 2 * var(--ps-thickness)) - var(--ps-padding));
   height: var(--ps-thickness);
   background: var(--ps-color);
@@ -242,7 +266,7 @@ input[type=submit]:hover {
   left:calc(var(--ps-padding)/2 + var(--ps-thickness));
 }
 
-#cross_vert {
+.cross_vert {
   width: var(--ps-thickness);
   height: calc((var(--ps-width) - 2 * var(--ps-thickness)) - var(--ps-padding));
   background: var(--ps-color);
