@@ -14,17 +14,15 @@ style="display: none;">
 {% endfor %}
 {% endif %}
 <!-- START BUTTON {{provider.id}} -->
-<a  href="{% provider_login_url provider.id process=process %}"
-    data-link="{% provider_login_url provider.id process=process %}"
-    class="{{provider.id}} btn login-btn" 
-    id="{{provider.id}}-button">
+<div id="{{provider.id}}-button" class="{{provider.id}} btn login-btn" >
+    <a  id="{{provider.id}}-button-anchor"
+        data-link="{% provider_login_url provider.id process=process %}">
     <i class="fa fa-{{provider.id}} fa-fw"></i>
     <span   id="{{provider.id}}-text" 
-            class="login-button-text">Login with {{provider.name}}</span>
+            class="login-button-text">Login with {{provider.name}}</span></a>
             
     <span id="{{provider.id}}-handler" class="alignright hiddenform">
-        <div id="circle"><div id="cross_hori"></div><div id="cross_vert"></div></div>
-        <div id="circle"><div id="cross_hori" class="deg45"></div><div id="cross_vert" class="deg45"></div></div>
+        <div id="{{provider.id}}-remove-id" class="circle"><div class="cross_hori deg45"></div><div class="cross_vert deg45"></div></div>
     </span>
     
     <div id="{{provider.id}}-handler-form" class="hiddenform">
@@ -37,11 +35,11 @@ style="display: none;">
                 name="rememberLogin" 
                 value="yes">
             <span class="alignleft">remember me</span>
-            <button class="alignright" type="button">Sign In</button>
+            <button id="{{provider.id}}-input-signin" class="alignright" type="button">Sign In</button>
         </span>
     </div>
     <div style="clear: both;"></div>
-</a>
+</div>
 <!-- END BUTTON {{provider.id}} -->
 
 {% endfor %}
