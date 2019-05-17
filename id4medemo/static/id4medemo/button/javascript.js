@@ -29,6 +29,12 @@ function redirectURL (event){
 	if($('#id4me-checkbox').prop('checked')){
 		setCookie("id4me.user", $('#id4me-input').val());
 	}
+	// spinner animation
+	$('#id4me-input-signin').html("<div class='loader'></div>");
+	// disable button and enter key
+	$('#id4me-input').off("keydown");
+	$('#id4me-input-signin').off("click");
+	$('#id4me-input-signin').css("background-color", "#999");
 	var url = $('#id4me-button-anchor').attr("data-link") + "&id4me=" + encodeURI($('#id4me-input').val());
 	location.href = url;
 }
