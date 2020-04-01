@@ -26,9 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!9og3%2!lti_o8v@4i$12%o0)8bnv&at&7h0y^ul3%au$(3%(='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['demo.domainid.community']
+ALLOWED_HOSTS = ['port8000.revproxy.short-lived.de']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
@@ -181,7 +182,8 @@ CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Fullwidth'),
     ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
+    ('sidebar_right.html', 'Sidebar Right'),
+    ('index.html', 'Index')
 )
 
 CMS_PERMISSION = True
@@ -189,24 +191,24 @@ CMS_PERMISSION = True
 CMS_PLACEHOLDER_CONF = {}
 
 DATABASES = {
-    'default': {
-        'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '172.30.75.215',
-        'NAME': 'id4medemo',
-        'PASSWORD': '',
-        'PORT': '3306',
-        'USER': 'user220'
-    }
-#    'default': {
-#        'CONN_MAX_AGE': 0,
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'HOST': 'localhost',
-#        'NAME': 'project.db',
-#        'PASSWORD': '',
-#        'PORT': '',
-#        'USER': ''
-#    }
+    # 'default': {
+    #     'CONN_MAX_AGE': 0,
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'HOST': '172.30.75.215',
+    #     'NAME': 'id4medemo',
+    #     'PASSWORD': '',
+    #     'PORT': '3306',
+    #     'USER': 'user220'
+    # }
+   'default': {
+       'CONN_MAX_AGE': 0,
+       'ENGINE': 'django.db.backends.sqlite3',
+       'HOST': 'localhost',
+       'NAME': 'project.db',
+       'PASSWORD': '',
+       'PORT': '',
+       'USER': ''
+   }
 }
 
 MIGRATION_MODULES = {

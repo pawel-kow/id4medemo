@@ -8,7 +8,7 @@ Click==7.0
 cryptography==2.5
 defusedxml==0.5.0
 dj-database-url==0.5.0
-Django==1.11.20
+Django==1.11.28
 django-allauth==0.38.0
 django-classy-tags==0.8.0
 django-cms==3.5.3
@@ -41,10 +41,8 @@ itsdangerous==1.1.0
 Jinja2>=2.10.1
 jwcrypto==0.6.0
 MarkupSafe==1.1.0
-mysqlclient==1.4.2.post1
 oauthlib==3.0.1
-Pillow==5.4.1
-pkg-resources==0.0.0
+Pillow==6.2.0
 pycparser==2.19
 python3-openid==3.1.0
 pytz==2018.9
@@ -55,4 +53,4 @@ tzlocal==1.5.1
 Unidecode==1.0.23
 urllib3>=1.24.2
 webencodings==0.5.1
-Werkzeug==0.14.1
+Werkzeug==0.15.3
