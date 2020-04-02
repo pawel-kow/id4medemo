@@ -1,0 +1,115 @@
+{% extends "template_base.html" %}
+{% load sekizai_tags %}
+{% load static %}
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block extra_head %}
+  {% addtoblock "css" %}
+    <link rel="stylesheet" type="text/css" href="{% static 'id4medemo/button/style.css' %}">
+  {% endaddtoblock %}
+{% endblock %}
+
+{% block page_body_tag %}<body class="bg-gradient-primary">{% endblock %}
+{% block page_content %}
+  {% addtoblock "js" %}
+    <script src="{% static 'id4medemo/button/javascript.js' %}"></script>
+  {% endaddtoblock %}
+
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                  </div>
+                  <form class="user" method="POST" action="{% url 'account_login' %}">
+                     {% csrf_token %}
+                     {% if form.non_field_errors %}
+                      <ul>
+                        {% for error in form.non_field_errors %}
+                          <li>{{ error }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    {% for hidden_field in form.hidden_fields %}
+                        {{ hidden_field.errors }}
+                        {{ hidden_field }}
+                    {% endfor %}
+                    {% block content %}
+                    {% endblock %}
+                    <div class="form-group">
+                      {% if form.login.errors %}
+                        <ul>
+                          {% for error in form.login.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                      <input type="text" class="form-control form-control-user" name="login" id="id_login" aria-describedby="emailHelp" placeholder="Enter User name..." {% if form.login.value != None %}value="{{ form.login.value|stringformat:'s' }}"{% endif %}>
+                    </div>
+                    <div class="form-group">
+                      {% if form.password.errors %}
+                        <ul>
+                          {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                      <input type="password" class="form-control form-control-user" name="password" id="id_password" placeholder="Password">
+                    </div>
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <div class="form-group">
+                      {% if form.remember.errors %}
+                        <ul>
+                          {% for error in form.remember.errors %}
+                            <li>{{ error }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" name="remember" id="id_remember"  {% if form.remember.value != None %}value="{{ form.remember.value|stringformat:'s' }}"{% endif %}>
+                        <label class="custom-control-label" for="id_remember">Remember Me</label>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary btn-user btn-block" type="submit">
+                      {% trans "Sign In" %}
+                    </button>
+                    <hr>
+
+                    {% get_providers as socialaccount_providers %}
+
+                    {% if socialaccount_providers %}
+                      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    {% include "socialaccount/snippets/login_extra.html" %}
+                    {% endif %}
+                  </form>
+                  <hr>
+                  <!--<div class="text-center">
+                      <a class="small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                  </div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}
