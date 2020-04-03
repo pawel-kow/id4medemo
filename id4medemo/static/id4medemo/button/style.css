@@ -34,8 +34,14 @@ input:hover,
   color: white;
 }
 
+/*
 .btn-id4me {
   background-color: #007a9d;
+  color: white;
+}
+*/
+.btn-id4me {
+  background-color: #000000;
   color: white;
 }
 
@@ -57,7 +63,7 @@ input:hover,
   -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-id4me:before {
+/*.fa-id4me:before {
   content: "ID";
   color: #00000000;
   background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzAwN2E5ZDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPjEwMHgxMDAgd2hpdGU8L3RpdGxlPjxnIGlkPSJMYXllcl8xIiBkYXRhLW5hbWU9IkxheWVyIDEiPjxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxNi45OSIvPjwvZz48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0zNi4yOCwxOC42NWgyOUExNy41LDE3LjUsMCwwLDEsODIuNzMsMzYuMTJWNjMuNTFBMTcuNTQsMTcuNTQsMCwwLDEsNjUuMjUsODFINDMuNjNsNy42Ni0xMC45M0g2NC43QTcuMTIsNy4xMiwwLDAsMCw3MS44LDYzVjM2LjczYTcuMDYsNy4wNiwwLDAsMC03LjEtNy4xSDQ3LjIxdjM1LjhMMzYuMjgsODFWMTguNjVaIi8+PHBvbHlnb24gY2xhc3M9ImNscy0yIiBwb2ludHM9IjE3LjI3IDE4LjY1IDE3LjI3IDgwLjk0IDI4LjIgODAuOTQgMjguMiAxOC42NSAxNy4yNyAxOC42NSAxNy4yNyAxOC42NSIvPjwvZz48L3N2Zz4=');
@@ -66,7 +72,7 @@ input:hover,
   background-size: 100%;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
-}
+}*/
 
 .login-button-text {
   padding-left: 6px;

@@ -81,12 +81,13 @@ $(document).ready(function(){
 	  $('#id4me-remove-id').click(function() {
 		  deleteCookie('id4me.user');
 		  $('#id4me-handler').hide();
-		  $('#id4me-text').html(" Login with ID4me ");
+		  $('#id4me-text').html(" Login with NetID/ID4me");
 		  $('#id4me-input').show();
 		  $('#id4me-handler-form').show();
 		  $('#id4me-input').focus();
 	  });
 	} else {
+	  $('#id4me-text').html(" Login with NetID/ID4me");
 	  $('#id4me-handler').hide();
 	  $('#id4me-button').click(function() {
 		  $('#id4me-input').show();
