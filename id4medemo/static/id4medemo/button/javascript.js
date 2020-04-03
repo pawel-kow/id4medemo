@@ -63,6 +63,13 @@ $(function() {
 	});
 });
 
+$(window).on('beforeunload', function(){
+    $('#id4me-input-signin').html("Sign in");
+	$('#id4me-input').on("keydown");
+	$('#id4me-input-signin').on("click");
+	$('#id4me-input-signin').css("background-color", "");
+});
+
 
 $(document).ready(function(){ 
 	var user = getCookie("id4me.user");
