@@ -39,7 +39,7 @@ html5lib==1.0.1
 idna==2.8
 itsdangerous==1.1.0
 Jinja2>=2.10.1
-jwcrypto==0.6.0
+jwcrypto==1.4
 MarkupSafe==1.1.0
 mysqlclient==1.4.2.post1
 oauthlib==3.0.1
